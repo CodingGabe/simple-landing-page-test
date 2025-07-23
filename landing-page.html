@@ -1,16 +1,113 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Landing Page</title>
+<html lang="en">
 
-		<link rel="stylesheet" href="styles.css">
-	</head>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>EBQ Landing Page Test - Gabe</title>
 
-	<body>
-		<!--Page Content-->
+	<link rel="stylesheet" href="styles.css">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+		rel="stylesheet">
 
-		<script type="text/javascript">
-			// Event listener JS goes here
-		</script>
-	</body>
+</head>
+
+<body>
+	<header>
+		<nav>
+			<div class="nav-inner">
+				<a href="/"><img src="/assets/logo-blue-trimmed.png" alt="EBQ Logo Blue"></a>
+				<a href="#" class="cta">Contact Us</a>
+			</div>
+		</nav>
+		<section class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1>Integrated <br><strong>Marketing Services</strong></h1>
+					<p>We turn your marketing plans into action by building on your ideas and executing initiatives
+						alongside you and your team. Get a complete department that can pivot to different areas of
+						marketing based on your needs.</p>
+				</div>
+			</div>
+		</section>
+	</header>
+
+	<main>
+		<section class="page-content">
+			<div class="container">
+				<div class="vert-flex">
+					<div class="two-col-grid reverse-m">
+						<div class="section-content_wrapper">
+							<h2>We’re experts with <strong>modern marketing tools</strong>, so you don’t have to be!
+							</h2>
+							<p>With hands-on experience in B2B’s most innovative apps and tools, we take a data-driven
+								approach to continually improve prospect engagement. Whether we work directly out of
+								your platform or provide our insights manually, you always get full visibility into the
+								process.</p>
+						</div>
+						<div class="section-image-wrapper">
+							<img src="/assets/Marketing_Tools.svg" alt="EBQ Marketing Tools">
+						</div>
+					</div>
+					<div class="two-col-grid">
+						<div class="section-image-wrapper">
+							<img src="/assets/Complete-Department-Marketing.png" alt="EBQ Marketing Tools">
+						</div>
+						<div class="section-content_wrapper">
+							<h2><strong>The best way</strong> to build a marketing team</h2>
+							<p>With EBQ, you’re not just hiring a marketing specialist. You’re getting an entire
+								marketing department at a fraction of the cost and effort of hiring internally.</p>
+							<p>For each project, we provide: a Success Manager to drive high-level strategy, a Project
+								Manager to oversee day-to-day operations, and one or more Specialists working diligently
+								to amplify your brand.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="contact-us" id="contact">
+			<div class="container">
+				<div class="contact-wrapper">
+					<h3 class="heading-h2 is-white">Looking to take your <strong>marketing to the next level?</strong>
+					</h3>
+					<a href="#" class="cta-orange">Contact Us</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script type="text/javascript">
+		// Event listener JS goes here
+		// a simple fade up and in load in
+		const observer = new IntersectionObserver((entries, observer) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('fade-in');
+					observer.unobserve(entry.target); // Triggers only once to avoid glitches
+				}
+			});
+		}, {
+			threshold: 0.2
+		});
+
+		document.querySelectorAll('.two-col-grid').forEach(el => observer.observe(el));
+
+		// Secret! Title click event 
+		const heroTitle = document.querySelector('.hero-content h1');
+		const originalText = heroTitle.innerHTML;
+
+		heroTitle.addEventListener('click', () => {
+			if (heroTitle.innerHTML !== originalText) {
+				heroTitle.innerHTML = originalText;
+			} else {
+				heroTitle.innerHTML = `Hire me for a <strong>game changing</strong> experience`;
+			}
+		});
+	</script>
+
+</body>
+
 </html>
